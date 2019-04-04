@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion project.compileSdkVersion
+    defaultConfig {
+        applicationId "com.ersen.androidwithlibgdx"
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":my-gdx-game-android")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:1.0.0-beta01"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testİmplementation 'junit:junit:4.12'
+    androidTestİmplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestİmplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android:flexbox:1.1.0'
+    implementation "com.android.support:support-v4:24.1.1"
+
+
+}
+repositories {
+    mavenCentral()
+}
